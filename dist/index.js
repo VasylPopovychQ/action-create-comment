@@ -57,7 +57,7 @@ function run() {
     	    var body = "";
     	    array.forEach(function (value) {
       		body += value + "\r\n";
-	    }
+	    });
             yield octokit.issues.createComment({
                 owner,
                 repo,
