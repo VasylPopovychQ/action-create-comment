@@ -21,9 +21,11 @@ async function run(): Promise<void> {
     var temp = body.replace("[\"", "");
     temp = temp.replace("\"]", "");
     var array = temp.split("\" \"");
+    var newBody = ";
     array.forEach(function (value) {
-    newBody += value + "\r\n";
-}); 
+      newBody += value + "\r\n";
+    }
+});
     await octokit.issues.createComment({
       owner,
       repo,
