@@ -48,10 +48,16 @@ function run() {
             if (core.getInput('repo')) {
                 [owner, repo] = core.getInput('repo').split('/');
             }
-		const body = 'test';
             const number = core.getInput('number') === ''
                 ? github.context.issue.number
                 : parseInt(core.getInput('number'));
+	    var temp = oldBody.replace("[\"", "");
+	    temp = temp.replace("\"]", "");
+    	    var array = temp.split("\" \"");
+    	    var body = "";
+    	    array.forEach(function (value) {
+      		body += value + "\r\n";
+	    }
             yield octokit.issues.createComment({
                 owner,
                 repo,
