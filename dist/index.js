@@ -42,13 +42,13 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const githubToken = core.getInput('github_token', { required: true });
-            const body = core.getInput('body', { required: true });
+            const oldBody = core.getInput('body', { required: true });
             const octokit = github.getOctokit(githubToken);
             let { owner, repo } = github.context.repo;
             if (core.getInput('repo')) {
                 [owner, repo] = core.getInput('repo').split('/');
             }
-		const newBody = 'test';
+		const body = 'test';
             const number = core.getInput('number') === ''
                 ? github.context.issue.number
                 : parseInt(core.getInput('number'));
@@ -56,7 +56,7 @@ function run() {
                 owner,
                 repo,
                 issue_number: number,
-                newBody
+                body
             });
         }
         catch (e) {
