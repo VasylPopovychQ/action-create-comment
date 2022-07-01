@@ -21,7 +21,7 @@ async function run(): Promise<void> {
     var temp = body.replace("[\"", "");
     temp = temp.replace("\"]", "");
     var array = temp.split("\" \"");
-    var newBody = ";
+    var newBody = "";
     array.forEach(function (value) {
       newBody += value + "\r\n";
     }
