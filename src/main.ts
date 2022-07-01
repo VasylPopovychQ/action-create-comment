@@ -18,11 +18,17 @@ async function run(): Promise<void> {
         ? github.context.issue.number
         : parseInt(core.getInput('number'));
 
+    var temp = body.replace("[\"", "");
+    temp = temp.replace("\"]", "");
+    var array = temp.split("\" \"");
+    array.forEach(function (value) {
+    newBody += value + "\r\n";
+}); 
     await octokit.issues.createComment({
       owner,
       repo,
       issue_number: number,
-      body
+      newBody
     });
   } catch (e) {
     core.error(e);
