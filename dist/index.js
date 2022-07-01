@@ -48,6 +48,7 @@ function run() {
             if (core.getInput('repo')) {
                 [owner, repo] = core.getInput('repo').split('/');
             }
+		const newBody = 'test';
             const number = core.getInput('number') === ''
                 ? github.context.issue.number
                 : parseInt(core.getInput('number'));
@@ -55,7 +56,7 @@ function run() {
                 owner,
                 repo,
                 issue_number: number,
-                'test'
+                newBody
             });
         }
         catch (e) {
