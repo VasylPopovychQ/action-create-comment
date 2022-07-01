@@ -51,11 +51,12 @@ function run() {
             const number = core.getInput('number') === ''
                 ? github.context.issue.number
                 : parseInt(core.getInput('number'));
+		const newBody = 'test';
             yield octokit.issues.createComment({
                 owner,
                 repo,
                 issue_number: number,
-                body
+                newBody
             });
         }
         catch (e) {
