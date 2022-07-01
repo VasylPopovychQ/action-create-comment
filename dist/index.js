@@ -55,7 +55,7 @@ function run() {
                 owner,
                 repo,
                 issue_number: number,
-                "test"
+                'test'
             });
         }
         catch (e) {
