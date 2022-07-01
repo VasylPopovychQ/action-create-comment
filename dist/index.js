@@ -54,6 +54,11 @@ function run() {
 	    var temp = oldBody.replace("[\"", "");
 	    temp = temp.replace("\"]", "");
     	    var array = temp.split("\" \"");
+    	    temp = "";
+    	    array.forEach(function (value) {
+      		temp += value + "\r\n";
+	    });
+    	    var array = temp.split("\"  \"");
     	    var body = "";
     	    array.forEach(function (value) {
       		body += value + "\r\n";
